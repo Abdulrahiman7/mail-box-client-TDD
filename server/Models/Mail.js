@@ -2,16 +2,14 @@ import { model, Schema } from "mongoose";
 
 const mailSchema=new Schema({
     mail:{
-        type:String,
+        type:Object,
         required:true
     },to:{
-        type: Schema.Types.ObjectId,  
-    ref: 'User',  
-    required: true
+        type:String,
+        required:true
     },from:{
-        type: Schema.Types.ObjectId,  
-    ref: 'User',  
-    required: true
+        type:String,
+        required:true
     },Date:{
         type:Date,
         default:Date.now
