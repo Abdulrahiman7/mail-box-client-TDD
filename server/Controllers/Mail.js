@@ -24,3 +24,14 @@ export const getInboxController=async (req, res)=>{
         res.status(400).json({status:'failed', message:err});
     }
 }
+
+export const deleteMailController=async(req, res)=>{
+    try{
+        const {id}=req.params;
+        const deleteMail=await Mail.findByIdAndDelete(id);
+        res.status(200).json({status:'success'});
+    }catch(err)
+    {
+        console.log(err);
+    }
+}
