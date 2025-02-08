@@ -35,3 +35,15 @@ export const deleteMailController=async(req, res)=>{
         console.log(err);
     }
 }
+
+
+export const getsentMailController=async(req,res)=>{
+    try{
+        const sent=await Mail.find({from:req.user.email});
+        res.status(200).json({sent:sent});
+    }catch(err)
+    {
+        console.log(err);
+        res.status(400).json({status:'failed', message:err});
+    }
+}
