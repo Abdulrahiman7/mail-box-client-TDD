@@ -12,3 +12,15 @@ export const SendMailController=async (req, res)=>{
         res.status(400).json({status:'failed', message:err});
     }
 }
+
+export const getInboxController=async (req, res)=>{
+    try{
+        const inbox=await Mail.find({to:req.user.email});
+        console.log(inbox);
+        res.status(200).json({inbox:inbox});
+    }catch(err)
+    {
+        console.log(err);
+        res.status(400).json({status:'failed', message:err});
+    }
+}

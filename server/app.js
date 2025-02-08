@@ -15,11 +15,11 @@ const server=http.createServer(app);
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-
+dotenv.config();
 app.use(UserRoutes);
 app.use(MailRoutes);
 
-dotenv.config();
+
 
 async function startServer(Port) {
     try{
